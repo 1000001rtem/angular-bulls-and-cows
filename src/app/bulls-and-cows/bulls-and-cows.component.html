@@ -1,0 +1,45 @@
+<div *ngIf="!isGameOver">
+  <div class="row">
+    <ngb-accordion class="accordion">
+      <ngb-panel title="Правила">
+        <ng-template ngbPanelContent>
+          Компьютер задумывает четыре различные цифры из 0,1,2,...9. Игрок делает ходы, чтобы узнать эти цифры и их
+          порядок.
+
+          Каждый ход состоит из четырёх цифр, 0 может стоять на первом месте.
+
+          В ответ компьютер показывает число отгаданных цифр, стоящих на своих местах (число быков) и число отгаданных
+          цифр, стоящих не на своих местах (число коров).
+
+          <h3>Пример</h3>
+          Компьютер задумал 0834.
+
+          Игрок сделал ход 8134.
+
+          Компьютер ответил: 2 быка (цифры 3 и 4) и 1 корова (цифра 8).
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <div class="box">
+        <app-input (onAnswer)="play($event)"></app-input>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="box">
+        <app-result [result]="result"></app-result>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="isGameOver">
+  <div class="col-12">
+    <div class="box">
+      <app-game-over></app-game-over>
+    </div>
+  </div>
+</div>

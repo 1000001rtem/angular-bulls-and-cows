@@ -1,0 +1,11 @@
+<div class="row" [@bullsAnimation]="result.bulls">
+  <div *ngFor="let i of [].constructor(result.bulls)">
+    <img src="./assets/bull.png"/>
+  </div>
+</div>
+<div class="row" [@cowsAnimation]="result.cows">
+  <div *ngFor="let i of [].constructor(result.cows)">
+    <img src="./assets/cow.png"/>
+  </div>
+</div>
+
